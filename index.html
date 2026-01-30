@@ -1,480 +1,206 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Jinro's Page</title>
-    <link rel="icon" href="Mine.jpeg" type="image/x-icon">
 
-    <style>
-        /* ===== LAYOUT ===== */
-        .container {
-            display: flex;
-            width: 100%;
-        }
+<title> Web Layout </title>
 
-        article {
-            padding: 20px;
-            width: 70%;
-            background-color: green;
-            min-height: 300px;
-            text-align: left-side;
-            /* Bilugan ang main content */
-            border-radius: 20px;
-            margin: 10px;
-        }
+<style>
 
-        .sidebar {
-            width: 30%;
-            background: hotpink;
-            padding: 20px;
-            /* Bilugan ang sidebar */
-            border-radius: 20px;
-            margin: 10px;
-        }
+/* Container */
+.container {
+    display: flex;
+    width: 100%;
+}
 
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
+/* Article */
+article {
+    padding: 20px;
+    width: 70%;
+    background-color: orange;
+    min-height: 300px;
+}
 
-        .sidebar ul li a {
-            display: block;
-            padding: 10px;
-            text-decoration: none;
-            color: purple;
-            cursor: pointer;
-            /* Bilugan ang sidebar items */
-            border-radius: 10px;
-            margin: 5px 0;
-        }
+/* Sidebar */
+.sidebar {
+    width: 30%;
+    background: lightgreen;
+    padding: 20px;
+}
 
-        .sidebar ul li a:hover {
-            background: magenta;
-        }
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
 
-        /* ===== NAVIGATION ===== */
-        ul.nav {
-            display: flex;
-            list-style: none;
-            margin: 10px;
-            padding: 0;
-            background: violet;
-            /* Bilugan ang navigation bar */
-            border-radius: 20px;
-            flex-wrap: wrap;
-        }
+.sidebar ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
 
-        ul.nav li {
-            position: relative;
-        }
+.sidebar ul li a:hover {
+    background: lightblue;
+}
 
-        ul.nav li a {
-            display: block;
-            padding: 14px 16px;
-            color: pink;
-            font-weight: bold;
-            text-decoration: none;
-            /* Bilugan ang navigation items */
-            border-radius: 15px;
-            margin: 5px;
-        }
+/* Top Navigation */
+ul.nav {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: darkblue;
+}
 
-        ul.nav li a:hover {
-            background-color: grey;
-            color: black;
-        }
+ul.nav li a {
+    display: block;
+    color: pink;
+    padding: 14px 16px;
+    text-decoration: none;
+}
 
-        /* ===== DROPDOWN GENERAL STYLES ===== */
-        .dropdown-box {
-            display: none;
-            position: absolute;
-            top: 55px;
-            left: 0;
-            width: 180px;
-            background: white;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            z-index: 999;
-            /* Bilugan ang dropdown box */
-            border-radius: 15px;
-            padding: 5px 0;
-        }
+ul.nav li a:hover {
+    background-color: lightblue;
+    color: black;
+}
 
-        .dropdown-box a {
-            display: block;
-            padding: 14px;
-            text-decoration: none;
-            color: black;
-            font-size: 18px;
-            /* Bilugan ang dropdown items */
-            border-radius: 10px;
-            margin: 0 5px;
-        }
+/* Header */
+header {
+    background-color: grey;
+    padding: 5px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+}
 
-        .dropdown-box a:hover {
-            background: black;
-            color: white;
-        }
+/* Footer */
+footer {
+    background-color: violet;
+    padding: 5px;
+    text-align: center;
+    color: white;
+}
 
-        /* ===== HEADER & FOOTER ===== */
-        header {
-            background: blue;
-            padding: 5px;
-            text-align: center;
-            color: #F5F1E8;
-            /* Bilugan ang header */
-            border-radius: 20px;
-            margin: 10px;
-        }
+/* Clearfix */
+section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
-        footer {
-            background: magenta;
-            padding: 5px;
-            text-align: center;
-            color: #F5F1E8;
-            /* Bilugan ang footer */
-            border-radius: 20px;
-            margin: 10px;
-        }
+</style>
 
-        .name {
-            color: darkmagenta;
-        }
-    </style>
 </head>
 
 <body>
-    <header>
-        <h2>SDIHS</h2>
-        <h3 style="font-size:18px;">Lesson 8: Optimizing Presentation Software Usage</h3>
-    </header>
 
-    <!-- ===== NAVIGATION ===== -->
-    <ul class="nav">
-        <li><a onclick="loadPage('home')">Home</a></li>
+<header>
+    <h2> SDIHS </h2>
+    <h3 style="font-size: 18px;"> Santo Domingo Integrated High School </h3>
+</header>
 
-        <!-- ACTIVITIES DROPDOWN -->
-        <li>
-            <a onclick="toggleDropdown('activitiesMenu')">Activities</a>
-            <div id="activitiesMenu" class="dropdown-box">
-                <a onclick="loadActivity('1st')">Activity#1</a>
-                <a onclick="loadActivity('2nd')">Activity#2</a>
-                <a onclick="loadActivity('3rd')">Activity#3</a>
-            </div>
-        </li>
-
-        <!-- ASSESSMENT - Direct Link + DROPDOWN -->
-        <li>
-            <a onclick="loadPage('assessment')">Assessment</a>
-            <div id="assessMenu" class="dropdown-box">            
-            </div>
-        </li>        
-
-        <!-- ABOUT DROPDOWN -->
-        <li>
-            <a onclick="toggleDropdown('aboutMenu')">About</a>
-            <div id="aboutMenu" class="dropdown-box">
-                <a onclick="loadAbout('Adrian','https://www.facebook.com/share/1Fsf5Y8MCj/')">Adrian</a>
-                <a onclick="loadAbout('Jinro','https://www.facebook.com/share/1GcyHbnzMY/')">Jinro</a>
-                <a onclick="loadAbout('Zam','https://www.facebook.com/share/1Fsf5Y8MCj/')">Zam</a>
-                <a onclick="loadAbout('Alvina','https://www.facebook.com/share/1G8MGEE4xe/')">Alvina</a>
-                <a onclick="loadAbout('Xhymone','https://www.facebook.com/share/1BvKRiMC9p/')">Xhymone</a>
-            </div>
-        </li>
-    </ul>
-
-    <section>
-        <div class="container">
-            <!-- ===== SIDEBAR ===== -->
-            <nav class="sidebar">
-                <ul>
-                    <li><a onclick="loadSidebar('content')">Content</a></li>
-                    <li><a onclick="loadSidebar('objectives')">Objectives</a></li>
-                    <li><a onclick="loadSidebar('learning competencies')">Learning Competencies</a></li>
-                    <li><a onclick="loadSidebar('performance standard')">Performance Standard</a></li>
-                   <li><a onclick="loadSidebar('reference')">Reference</a></li>
+<!-- TOP NAVIGATION -->
+<ul class="nav">
+    <li> <a href="Document 1.html"> Home </a> </li>
+    <li> <a href="Document 2.html"> First Quarter </a> </li>
+    <li> <a href="Document 3.html"> Second Quarter </a> </li>
+    <li> <a href="https://www.facebook.com/share/1GDhua8rDk/"> About </a> </li>
 </ul>
-            </nav>
 
-            <!-- ===== MAIN CONTENT ===== -->
-            <article id="content">
-                <h1> Welcome SDIHS! </h1>
-                <p>Batang Santo likas na mabait, matalino, at aktibo! School for talented students.</p>
-            </article>
-        </div>
-    </section>
+<section>
 
-    <footer>
-        <p> © Fourth Year Students Batch 2025 - 2026</p>
-    </footer>
+<div class="container">
 
-    <script>
-        /* ===== GENERAL DROPDOWN TOGGLE ===== */
-        function toggleDropdown(menuId) {
-            const allDropdowns = document.querySelectorAll('.dropdown-box');
-            allDropdowns.forEach(box => {
-                if (box.id !== menuId) box.style.display = 'none';
-            });
-            const menu = document.getElementById(menuId);
-            menu.style.display = (menu.style.display === "block") ? "none" : "block";
-        }
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <ul>
+            <li> <a href="#" onclick="loadContent('home')"> School Profile </a> </li>
+            <li> <a href="#" onclick="loadContent('shs')"> SHS </a> </li>
+            <li> <a href="#" onclick="loadContent('jhs')"> JHS </a> </li>
+        </ul>
+    </nav>
 
-        /* ===== LOAD ABOUT PERSON WITH OPTIONAL FB LINK ===== */
-        function loadAbout(name, fbLink) {
-            toggleDropdown('aboutMenu');
-            let content = `<h1>${name}</h1>`;
-            let profileInfo = '';
-            if (fbLink === 'https://www.facebook.com/share/1Fsf5Y8MCj/') {
-                profileInfo = '<p>Name: John Adrian Riosa<br>No work or school information listed.</p>';
-            } else if (fbLink === 'https://www.facebook.com/share/1GcyHbnzMY/' || fbLink === 'https://www.facebook.com/share/1BvKRiMC9p/') {
-                profileInfo = '<p>Profile requires login to view details.</p>';
-            } else if (fbLink === 'https://www.facebook.com/share/1G8MGEE4xe/') {
-                profileInfo = '<p>Content not available - may have been shared privately, modified, or deleted.</p>';
-            }
-            if (fbLink && fbLink !== '#') {
-                content += `<p>Facebook: <a href="${fbLink}" target="_blank">Visit Profile</a></p>`;
-                content += profileInfo;
-            } else {
-                content += `<p>About information goes here.</p>`;
-            }
-            document.getElementById("content").innerHTML = content;
-        }
+    <!-- MAIN CONTENT -->
+    <article id="content">
+        <h1> SDIHS</h1>
+        <p>
+            Santo Domingo Integrated High School was founded in 1971. <br>
+            It is located at Barangay Santo Domingo, City of Santa Rosa, Laguna.
+        </p>
+    </article>
 
-        /* ===== LOAD ACTIVITY DETAILS ===== */
-        function loadActivity(activity) {
-            toggleDropdown('activitiesMenu');
-            let content = `<h1>${activity} Activity</h1>`;
-            switch (activity) {
-                case '1st':
-                    content += `<strong>COLUMN A</strong>
-<p>1. Hyperlink	</p>
-<p>2. Action Buttons</p>
-<p>3. Motion Paths</p>
-<p>4. Master Slide</p>	
-
-<strong>COLUMN B</strong>
-<p>A. Built-in buttons that let you move between slides or perform actions like going to next/previous slide or exiting the presentation.</p>
-<p>B. Animations that move an object along a specific path (straight, curved, custom) on a slide.</p>
-<p>C. A clickable text, image, or object that takes you to another slide, file, website, or email address.</p>
-<p>D. A main slide controlling design, layout, fonts</p>`;
-                    break;
-                case '2nd':
-                    content += `<h1>Arrange the Jumbled words according to their description:</h1><p>NOCTAI STNTOBU</p>
-<p>are built-in buttons in PowerPoint that let you move between slides or perform actions like going to the next slide, previous slide, or exiting the presentation.</p>
-<strong>TOMNIO SHTAP</strong>
-<p>animations that move an object along a specific path on a slide, such as straight, curved, or custom paths.</p>
-<strong>LEPRYNHIK</strong>
-<p> a clickable text, image, or object that takes you to another slide, a file, a website, or an email address.</p>
-<strong>REMATS EDLIS</strong>
-<p>a main slide that controls the design, layout, fonts, and background of all slides in a presentation, helping keep everything consistent.</p>`;
-                    break;
-                case '3rd':
-                    content += `<p><a class="highlight"
-href="Act3.html">Activity</a></p>`;
-                    break;
-                default:
-                    content += `<p>Activity details will be updated soon.</p>`;
-            }
-            document.getElementById("content").innerHTML = content;
-        }
-
-        /* ===== LOAD ASSESSMENT DETAILS ===== */
-        function loadAssessment(type) {
-            toggleDropdown('assessMenu');
-            let content = `<h1>${type} Assessment</h1>`;
-            switch (type) {
-                case 'assessment':
-                    content += `<p>
-DIRECTIONS: Read each item carefully and choose the correct answer. Write your response on a separate sheet of paper.</p
- <p>1. Which of the following refers to a clickable object inserted in a slide?</p>
-<p>A. Motion Path</p>
-<p>B. Action Button</p>
-<p>C. Hyperlink</p>
-<p>D. Transition</p>
-<p>2. What do you call a specific path assigned to an animation?</p>
-<p>A. Slide Layout</p>
-<p>B. Transition Effect</p>
-<p>C. Motion Path</p>
-<p>D. Animation Sequence</p>
-<p>3. The entire collection of slides used to deliver information is known as a </p>
-<p>A. Slide Deck</p>
-<p>B. Master Slide</p>
-<p>C. Presentation</p>
-<p>D. Slide Page</p>
-<p>4. A template that Are RT Wwwwww you have displaying text, images, or charts is a</p>
-<p>A. Layout
-<p>B. Page</p>
-<p>C. Slide</p>
-<p>D. Frame</p>
-<p>6. What term describes the movement and visual interest of slides?</p>
-<p>A. Animation</p>
-<p>B. Transition</p>
-<p>C. Dynamics</p>
-<p>D. Visual Flow</p>
-<p>7. The process of inspecting data to discover useful information and support decision-making is called</p>
-<p>A. Data Analysis</p>
-<p>B. Data Collection</p>
-<p>C. Data Reporting</p>
-<p>D. Data Visualization</p>
-<p>8. Which effect is used when moving from one slide to another during a presentation?
-<p>A. Animation</p>
-<p>B. Transition</p>
-<p>C. Motion Path</p>
-<p>D. Fade Effect</p>
-<p>9. A link that navigates to another slide when clicked is a ________.</p>
-<p>A. Action Link</p>
-<p>B. Navigation Link</p>
-<p>C. Hyperlink</p>
-<p>D. Slide Link</p>
-<p>10. One of the learning objectives is to recognize the use of all the following EXCEPT:</p.
-<p>A. Master Slide</p>
-<p>B. Motion Paths</p>
-<p>C. Spreadsheet Formulas</p>
-<p>D. Action Buttons</p>`;
-                    break;
-                case 'Performance':
-                    content += `<p>Hands-on tasks like projects, experiments, and presentations. Accounts for 50% of the final grade.</p>`;
-                    break;
-                case 'Portfolio':
-                    content += `<p>Collection of student work showcasing progress throughout the quarter. Accounts for 5% of the final grade.</p>`;
-                    break;
-                case 'Recitation':
-                    content += `<p>Oral participation in class discussions. Accounts for 5% of the final grade.</p>`;
-                    break;
-                default:
-                  
-            }
-            document.getElementById("content").innerHTML = content;
-        }
-
-        /* ===== LOAD QUARTER SUBJECTS ===== */
-        function loadQuarter(subject) {
-            toggleDropdown('q1Menu');
-            let title = subject.replace('q1', 'First Quarter ');
-            let content = `<h1>${title}</h1>`;
-            switch (subject) {
-                case 'q1Math':
-                    content += `<p>Topics covered: Algebraic Expressions, Linear Equations, and Quadratic Functions.</p>`;
-                    break;
-                case 'q1Sci':
-                    content += `<p>Topics covered: Cell Structure and Function, Genetics, and Ecosystems.</p>`;
-                    break;
-                case 'q1Fil':
-                    content += `<p>Topics covered: Panitikang Pilipino, Ibong Adarna, and Sanaysay.</p>`;
-                    break;
-                default:
-                    content += `<p>Subject content will be updated soon.</p>`;
-            }
-            document.getElementById("content").innerHTML = content;
-        }
-
-        /* ===== TOP MENU PAGES ===== */
-        function loadPage(page) {
-            const allDropdowns = document.querySelectorAll('.dropdown-box');
-            allDropdowns.forEach(box => box.style.display = 'none');
-            const c = document.getElementById("content");
-            if (page === "home") {
-                c.innerHTML = `
-<h1>Mission, Vision, and Core Values</h1>
-<hr>
-<div id="mission">
-<hr><h1 style="font-family:freestyle script">Mission</h1>
-<p>- To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education where: </p>
-<p>Students learn in a child-friendly, gender-sensitive, safe, and motivating environment.</p>
-<p>Teachers facilitate learning and constantly nurture every learner.</p>
-<p>Administrators and staff, as stewards of the institution, ensure an enabling and supportive environment for effective learning. Family, community, and other stakeholders are actively engaged and share responsibility for developing life-long learners.</p>
 </div>
-<div id="vision">
-<hr><h1 style="font-family:freestyle script">Vision</h1>
-<p>-We dream of Filipinos who passionately love their country and whose values and competencies enable them to realize their full potential and contribute meaningfully to building the nation.</p>
-</div>
-<div id="core-values">
-<hr><h1 style="font-family:freestyle script">Core Values</h1>
-<p>Maka-Diyos, Maka-Tao, Makakalikasan, Makabansa</p>
-</div>`;
-            } else if (page === "q2") {
-                c.innerHTML = `<h1>Second Quarter</h1><p>Subject content for the second quarter will be updated soon.</p>`;
-            } else if (page === "assessment") {
-                c.innerHTML = `<h1>Assessment Overview</h1><p>DIRECTIONS: Read each item carefully and choose the correct answer. Write your response on a separate sheet of paper.</p
- <p>1. Which of the following refers to a clickable object inserted in a slide?</p>
-<p>A. Motion Path</p>
-<p>B. Action Button</p>
-<p>C. Hyperlink</p>
-<p>D. Transition</p>
-<p>2. What do you call a specific path assigned to an animation?</p>
-<p>A. Slide Layout</p>
-<p>B. Transition Effect</p>
-<p>C. Motion Path</p>
-<p>D. Animation Sequence</p>
-<p>3. The entire collection of slides used to deliver information is known as a </p>
-<p>A. Slide Deck</p>
-<p>B. Master Slide</p>
-<p>C. Presentation</p>
-<p>D. Slide Page</p>
-<p>4. A template that Are RT Wwwwww you have displaying text, images, or charts is a</p>
-<p>A. Layout
-<p>B. Page</p>
-<p>C. Slide</p>
-<p>D. Frame</p>
-<p>6. What term describes the movement and visual interest of slides?</p>
-<p>A. Animation</p>
-<p>B. Transition</p>
-<p>C. Dynamics</p>
-<p>D. Visual Flow</p>
-<p>7. The process of inspecting data to discover useful information and support decision-making is called</p>
-<p>A. Data Analysis</p>
-<p>B. Data Collection</p>
-<p>C. Data Reporting</p>
-<p>D. Data Visualization</p>
-<p>8. Which effect is used when moving from one slide to another during a presentation?
-<p>A. Animation</p>
-<p>B. Transition</p>
-<p>C. Motion Path</p>
-<p>D. Fade Effect</p>
-<p>9. A link that navigates to another slide when clicked is a ________.</p>
-<p>A. Action Link</p>
-<p>B. Navigation Link</p>
-<p>C. Hyperlink</p>
-<p>D. Slide Link</p>
-<p>10. One of the learning objectives is to recognize the use of all the following EXCEPT:</p.
-<p>A. Master Slide</p>
-<p>B. Motion Paths</p>
-<p>C. Spreadsheet Formulas</p>
-<p>D. Action Buttons.</p><p>Select a specific assessment type from the dropdown menu for more details.</p>`;
-            }
-        }
 
-        /* ===== SIDEBAR CONTENT LOAD ===== */
-        function loadSidebar(topic) {
-            const c = document.getElementById("content");
-            if (topic === "content") {
-                c.innerHTML = `<h1>Optimizing Presentation Software Usage</h1><p>Refers to the strategic and efficient application of tools like Microsoft PowerPoint, Google Slides, Apple Keynote, or similar platforms to create, deliver, and manage presentations that are clear, engaging, and aligned with specific goals—while minimizing technical inefficiencies, unnecessary complexity, and wasted time.
-</p><p>
-This practice encompasses multiple elements: selecting appropriate templates and design elements to enhance readability and visual coherence; leveraging features like master slides, styles, and reusable components to streamline creation and ensure consistency; optimizing file sizes by compressing media and avoiding redundant content; customizing settings for seamless delivery across different devices or venues; and integrating interactive elements (such as hyperlinks, animations, or multimedia) purposefully to support key messages without distracting from them. It also involves organizing and storing presentation files effectively for easy access, collaboration, and future updates.</p><strong>Hyperlink</strong>
-<p>A hyperlink is a clickable text, image, or object that takes you to another slide, a file, a website, or an email address.</p>
-<strong>Action Buttons</strong>
-<p>are built-in buttons in PowerPoint that let you move between slides or perform actions like going to the next slide, previous slide, or exiting the presentation.</p>
-<strong>Motion Paths</strong>
-<p>Motion paths are animations that move an object along a specific path on a slide, such as straight, curved, or custom paths.</p>
-<strong>Master Slide</strong>
-<p>The master slide is a main slide that controls the design, layout, fonts, and background of all slides in a presentation, helping keep everything consistent.</p>`;
-            } else if (topic === "objectives") {
-                c.innerHTML = `<h1>Objectives</h1><p>
-<strong>Streamline Creation Workflows</strong>
-<p>Reduce time spent building slides by using reusable elements, templates, and automation tools.</p>
-<strong>Enhance Visual Clarity & Impact</strong>
-<p>Ensure content is easy to read and engaging through purposeful design choices and consistent formatting.</p>
-<strong>Minimize Technical Issues</strong>
-<p>Optimize file sizes and compatibility to prevent delays or errors during delivery across devices/venues.</p>
-<strong>Boost Message Retention</strong>
-<p>Use interactive features and multimedia strategically to reinforce key points and keep audiences focused.</p>
-<strong>Improve Collaboration & Manageability</strong>
-<p>Organize files, enable seamless sharing, and simplify updates for teams working on presentations together.
-</p>`;
-            } else if (topic === "learning competencies") {
-                c.innerHTML = `<h1>Learning Competencies</h1><p>The learners will create presentations with master slide, motion paths, hyperlinks, and action buttons and they know how to make their power point presentation organized and visible.</p>`;
-            } else if (topic === "performance standard") {
-                c.innerHTML = `<h1>Performance Standard</h1><p>Expected Outcome</p><p>Students must learn how to use action buttons, hyperlinks, motion paths, and master slides on their power point presentation</p><p>Students must know how to make their power point organize and visible</p>`;
-            }
-        }
-    </script>
+</section>
+
+<footer>
+    <p>© Forth Year Students Batch 2025-2026</p>
+</footer>
+
+<script>
+
+function loadContent(section) {
+
+    const content = document.getElementById('content');
+
+    if (section === 'home') {
+        content.innerHTML = `
+            <h2> School Profile </h2>
+            <p>
+            <h3> Vision </h3>
+            
+     
+
+We dream of Filipinos
+who passionately love their country
+and whose values and competencies
+enable them to realize their full potential
+and contribute meaningfully to building the nation.
+
+
+As a learner-centered public institution,
+the Department of Education
+continuously improves itself
+to better serve its stakeholders.
+ 
+
+
+<h3> Mission </h3>
+
+
+
+To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic
+
+
+
+<h3> Core Values </h3>
+
+
+
+Maka-Diyos,
+Maka-tao,
+Makakalikasan,
+Makabansa
+            </p>
+        `;
+    }
+
+    else if (section === 'shs') {
+        content.innerHTML = `
+            <h2> SHS </h2>
+            <p>Santo Domingo Integrated High School offers Senior High School (SHS), a 2-year program (Grades 11-12) in the Philippines. It gets you ready for college, work, or starting your own thing. They have EPAS, HUMSS, ICT tracks. SHS helps you build skills, guides you on what to do after school, and connects you with real jobs. They check your progress in different ways. Santo Domingo Integrated High School, just like other schools around here in Calabarzon, gives you different SHS tracks to pick what you like!</p>
+        `;
+    }
+
+    else if (section === 'jhs') {
+        content.innerHTML = `
+            <h2> JHS </h2>
+            <p>Santo Domingo Integrated High School's Junior High has EPAS and ICT. EPAS is where you learn to build and fix gadgets, maybe even get a certificate after. ICT is all about computers and tech stuff, finding info, chatting online, and being creative with tech.</p>
+        `;
+    }
+}
+
+</script>
+
 </body>
 </html>
